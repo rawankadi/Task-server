@@ -14,7 +14,7 @@ app.use(routes);
 app.use(express.static(path.join(__dirname,"https://taskmoveo.herokuapp.com/")));
 
 app.get('*', (req ,res) => {
-    res.sendFile(path.join(__dirname,'https://taskmoveo.herokuapp.com/HomePage','index.html'));
+    res.sendFile(path.join(__dirname,'https://taskmoveo.herokuapp.com/','index.html'));
 });
 
 connectDb().then(async () => {
