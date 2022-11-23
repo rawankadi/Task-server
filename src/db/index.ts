@@ -8,3 +8,4 @@ const connectDb = async () => {
 };
 
 export { connectDb }
+// mongodb+srv://rawankadi:Rawan1234@cluster0.bfpevhx.mongodb.net/?retryWrites=true&w=majority
