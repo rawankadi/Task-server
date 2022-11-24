@@ -11,11 +11,11 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(routes);
 
-app.use(express.static(path.join(__dirname,"https://taskmoveo.herokuapp.com/")));
+// app.use(express.static(path.join(__dirname,"https://taskmoveo.herokuapp.com/")));
 
-app.get('*', (req ,res) => {
-    res.sendFile(path.join(__dirname,'https://taskmoveo.herokuapp.com/','index.html'));
-});
+// app.get('*', (req ,res) => {
+//     res.sendFile(path.join(__dirname,'https://taskmoveo.herokuapp.com/','index.html'));
+// });
 
 connectDb().then(async () => {
     app.listen(process.env.PORT || 3001, () => console.log("Listening on http://localhost:3001"));
