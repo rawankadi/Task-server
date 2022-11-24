@@ -30,6 +30,6 @@ app.use(routes);
 //     });
 
 connectDb().then(async () => {
-    app.listen(process.env.PORT || 3001, () => console.log("Listening on http://localhost:3001"));
+    await app.listen(process.env.PORT || 3001, () => console.log("Listening on http://localhost:3001"));
 });
 
