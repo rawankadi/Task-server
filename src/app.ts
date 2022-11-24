@@ -2,24 +2,15 @@ import express from "express";
 import routes from './routes/index';
 import { connectDb } from "./db/index";
 import bodyParser from 'body-parser';
-import cors from 'cors';
 import path from "path";
+import cors from 'cors';
 
 const app = express();
-app.use(function (req, res, next) {
 
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'https://taskmoveo.herokuapp.com/');
+app.use(cors({
+    origin:"*",
+}))
 
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Pass to next layer of middleware
-    next();
-});
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 app.use(routes);
