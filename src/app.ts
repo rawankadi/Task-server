@@ -8,7 +8,7 @@ import path from "path";
 const app = express();
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
-app.use(cors());
+//app.use(cors());
 app.use(routes);
 
 // app.use(express.static(path.join(__dirname,"https://taskmoveo.herokuapp.com/")));
