@@ -8,10 +8,20 @@ import path from "path";
 const app = express();
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
-app.use(cors({
-    origin: '*',
-    methods: ['GET','POST','OPTIONS']
-}));
+app.use(function (req, res, next) {
+
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', 'https://taskmoveo.herokuapp.com/');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Pass to next layer of middleware
+    next();
+});
 app.use(routes);
 
 // app.use(express.static(path.join(__dirname,"https://taskmoveo.herokuapp.com/")));
