@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 app.use(cors({
     origin: '*',
-    methods: ['GET','POST']
+    methods: ['GET','POST','OPTIONS']
 }));
 app.use(routes);
 
