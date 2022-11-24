@@ -17,6 +17,22 @@ app.use(routes);
 //     res.sendFile(path.join(__dirname,'https://taskmoveo.herokuapp.com/','index.html'));
 // });
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested, Content-Type, Accept Authorization"
+    )
+    if (req.method === "OPTIONS") {
+      res.header(
+        "Access-Control-Allow-Methods",
+        "POST, PUT, PATCH, GET, DELETE"
+      )
+      return res.status(200).json({})
+    }
+    next()
+  })
+
 connectDb().then(async () => {
     app.listen(process.env.PORT || 3001, () => console.log("Listening on http://localhost:3001"));
 });
