@@ -9,7 +9,8 @@ const app = express();
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 app.use(cors({
-    origin: 'https://taskmoveo.herokuapp.com'
+    origin: '*',
+    methods: ['GET','POST']
 }));
 app.use(routes);
 
