@@ -6,8 +6,6 @@ import cors from 'cors';
 import path from "path";
 
 const app = express();
-app.use(bodyParser.urlencoded());
-app.use(bodyParser.json());
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
@@ -22,6 +20,8 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 app.use(routes);
 
 // app.use(express.static(path.join(__dirname,"https://taskmoveo.herokuapp.com/")));
